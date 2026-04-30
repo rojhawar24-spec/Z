@@ -493,19 +493,14 @@ export default function PaymentModal({ onClose, onSuccess }: PaymentModalProps) 
           {/* ── STEP 2: PAYPAL PAYMENT ── */}
           {step === "pay" && (
             <PayPalScriptProvider
-              options={{
-                // ✅ Jouw echte PayPal live Client ID
-                clientId: PAYPAL_CLIENT_ID,
-                currency: "USD",
-                intent: "capture",
-                // "buttons" = PayPal + creditcard/debitcard via PayPal
-                components: "buttons",
-                // Enables credit & debit card payment through PayPal
-                // "enable-funding" shows extra methods based on buyer location
-                "enable-funding": "card,credit",
-                "disable-funding": "",
-              }}
-            >
+options={{
+  clientId: PAYPAL_CLIENT_ID,   // 👈 moet een geldige string zijn
+  currency: "USD",
+  intent: "capture",
+  components: "buttons",
+  enableFunding: "card,credit",   // ✅ camelCase, géén aanhalingstekens
+  disableFunding: "",             // ✅ idem
+}}            >
               <PayPalCheckout
                 plan={selectedPlan}
                 language={language}

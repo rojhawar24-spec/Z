@@ -30,7 +30,6 @@ const L = (map: Record<Language, string>, lang: Language): string =>
 const PAYPAL_CLIENT_ID = import.meta.env.VITE_PAYPAL_CLIENT_ID;
 
 // 🔴 VUL HIER IN: Het email adres waar geld naartoe moet (optioneel, alleen als anders dan Client ID owner)
-const PAYPAL_RECEIVER_EMAIL = "rojhawar24@gmail.com";
 
 interface Plan {
   months: number;
